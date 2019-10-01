@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Controle de Metas</string>
+    <string name="btn_edit">Editar</string>
+    <string name="btn_save">Salvar</string>
+    <string name="btn_delete">Deletar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="add_new_goal">Adicionar</string>
+    <string name="add_new_goal_activity">Nova Meta</string>
+    <string name="complete_goal">Concluir</string>
+    <string name="display_goal_title">Detalhes da Meta</string>
+    <string name="null_list">Não há nenhuma meta adicionada</string>
+</resources>
