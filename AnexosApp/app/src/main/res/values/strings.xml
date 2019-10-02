@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">AnexosApp</string>
+    <string name="nome">Nome</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="msgcadastro">Ainda não tem cadatro? Cadastre-se</string>
+    <string name="telefone">Telefone</string>
+    <string name="salvar">Salvar</string>
+    <string name="erro_generico">Algo de errado ocorreu, tente novamente!</string>
+    <string name="erro_nome">Nome informado inválido ou vazio</string>
+    <string name="erro_email">Email informado é inválido ou já está cadastrado</string>
+    <string name="erro_senha">A senha deve ter no minimo 6 digitos</string>
+    <string name="usuario_senha_incorretos">Usuario ou senha incorretos</string>
+    <string name="loggout">Sair</string>
+    <string name="anexos">Anexos</string>
+    <string name="tp_anexo">Tipo de Anexo</string>
+    <string name="anexar">Anexar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
