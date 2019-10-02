@@ -14,6 +14,7 @@ class BitMapUtil {
     }
 
     fun converterBitMapParaByteArray(bitmap: Bitmap): ByteArray{
+
         val stream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
         return stream.toByteArray()

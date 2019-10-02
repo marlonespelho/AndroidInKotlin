@@ -29,9 +29,8 @@ class AnexoBusiness (val context: Context){
         return mAnexoRepository.get(anexoId)
     }
 
-    fun update(anexo: AnexoEntity) : AnexoEntity{
+    fun update(anexo: AnexoEntity){
         mAnexoRepository.update(anexo)
-        return mAnexoRepository.get(anexo.id)!!
     }
 
 }

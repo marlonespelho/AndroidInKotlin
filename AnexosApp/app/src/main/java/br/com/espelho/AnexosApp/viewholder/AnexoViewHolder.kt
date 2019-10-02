@@ -18,7 +18,7 @@ class AnexoViewHolder (itemView: View, val listener: OnAnexoListFragmentInteract
         val mRowAnexo : (ConstraintLayout) = itemView.findViewById(R.id.rowAnexo)
 
         mTextDescription.text = anexo.tipoAnexo.name
-        mCheckBoxAnexoExistente.isSelected = anexo.anexo != null
+        mCheckBoxAnexoExistente.isChecked = anexo.anexo != null
         mRowAnexo.setOnClickListener({
             listener.onListClick(anexo.id)
         })

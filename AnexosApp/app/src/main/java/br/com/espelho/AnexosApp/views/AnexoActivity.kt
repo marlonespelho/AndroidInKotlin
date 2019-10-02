@@ -1,13 +1,10 @@
 package br.com.espelho.AnexosApp.views
 
-import android.app.Activity
-import android.content.Context
+
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import br.com.espelho.AnexosApp.R
 import br.com.espelho.AnexosApp.business.AnexoBusiness
 import br.com.espelho.AnexosApp.constants.AnexosConstants
 import kotlinx.android.synthetic.main.activity_anexo.*
@@ -16,10 +13,9 @@ import android.graphics.Bitmap
 import android.widget.ImageView
 import android.widget.Toast
 import br.com.espelho.AnexosApp.Entities.AnexoEntity
+import br.com.espelho.AnexosApp.R
 import br.com.espelho.AnexosApp.util.BitMapUtil
-import br.com.espelho.AnexosApp.util.FileUtil
-
-
+import android.os.Build
 
 
 
@@ -61,27 +57,37 @@ class AnexoActivity : AppCompatActivity(), View.OnClickListener{
         when(v.id){
             R.id.imageButtonAnexar ->{
                 val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                startActivityForResult(intent, 0)
+                startActivityForResult(intent, 1)
+            }
+            R.id.imageViewAnexo ->{
             }
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == 0){
-            if (data != null){
-                val bundle : Bundle = data.extras!!
-                val bitmap = bundle.get("data") as Bitmap
-                mAnexo.anexo = BitMapUtil().converterBitMapParaByteArray(bitmap)
-                mAnexo = mAnexoBusiness.update(mAnexo)
-                carregarImagem()
+        if (requestCode == 1){
+            if (resultCode == RESULT_OK){
+                if (data != null){
+                    val bundle : Bundle = data.extras!!
+                    val bitmapData = bundle.get("data") as Bitmap
+                    mAnexo.anexo =  BitMapUtil().converterBitMapParaByteArray(bitmapData)
+                    mAnexoBusiness.update(mAnexo)
+                    mAnexo = mAnexoBusiness.get(mAnexoId!!)!!
+                    carregarImagem()
+                }
             }
-        }  else{
-            Toast.makeText(this, "erro na captura", Toast.LENGTH_LONG).show()
+            else if(resultCode == RESULT_CANCELED){
+                Toast.makeText(this, "captura cancelada", Toast.LENGTH_LONG).show()
+            }
+            else{
+                Toast.makeText(this, "erro na captura", Toast.LENGTH_LONG).show()
+            }
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun carregarImagem(){
+        //val bitmap: Bitmap = BitmapFactory.decodeByteArray(mAnexo.anexo,0,mAnexo.anexo!!.size)
         val imageViewAnexo : ImageView = findViewById(R.id.imageViewAnexo)
         imageViewAnexo.setImageBitmap(BitMapUtil().converterByteArrayParaBitMap(mAnexo.anexo!!))
     }

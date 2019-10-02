@@ -57,7 +57,6 @@ class AnexoRepository private constructor(context: Context){
         }
     }
 
-
     fun getList(usuarioId: Int) : MutableList<AnexoEntity> {
         val list = mutableListOf<AnexoEntity>()
         try {
@@ -77,7 +76,7 @@ class AnexoRepository private constructor(context: Context){
                     val id = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.ANEXO.COLUMNS.ID))
                     val tipoAnexo = TipoAnexoEnum.valueOf(cursor.getString(cursor.getColumnIndex(DataBaseConstants.ANEXO.COLUMNS.TIPOANEXO)))
                     val anexo = cursor.getBlob(cursor.getColumnIndex(DataBaseConstants.ANEXO.COLUMNS.ANEXO))
-                    list.add(AnexoEntity(id,usuarioId,tipoAnexo,null))
+                    list.add(AnexoEntity(id,usuarioId,tipoAnexo,anexo))
                 } while (cursor.moveToNext())
             }
             cursor.close()
@@ -115,7 +114,6 @@ class AnexoRepository private constructor(context: Context){
     }
 
     fun update(anexoEntity: AnexoEntity){
-        var anexoEntity : AnexoEntity? = null
         try {
             val db = mTaskDataBaseHelper.writableDatabase
             val updateValues = ContentValues()
