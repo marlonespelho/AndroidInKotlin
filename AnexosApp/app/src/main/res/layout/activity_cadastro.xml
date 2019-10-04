@@ -114,7 +114,7 @@
                 android:textSize="18sp"
                 tools:text="@string/telefone" />
 
-            <EditText
+            <br.com.espelho.AnexosApp.util.EditTextTelefone
                 android:id="@+id/editTextTelefone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -44,7 +44,7 @@ class AnexosListFragment : Fragment() {
         mAnexoBusiness = AnexoBusiness(context!!)
         mListInteraction = object: OnAnexoListFragmentInteractionListener{
             override fun onListClick(anexoId: Int) {
-                val bundle: Bundle = Bundle()
+                val bundle = Bundle()
                 bundle.putInt(AnexosConstants.KEY.ANEXO_ID, anexoId)
                 val intent = (Intent(mContext, AnexoActivity::class.java))
                 intent.putExtras(bundle)

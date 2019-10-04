@@ -34,7 +34,12 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun setListeners(){
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
+   private fun setListeners(){
         buttonSalvar.setOnClickListener(this)
     }
 

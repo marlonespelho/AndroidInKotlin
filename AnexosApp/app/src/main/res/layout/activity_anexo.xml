@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/imageViewAnexo"
-        android:layout_width="345dp"
-        android:layout_height="303dp"
+        android:layout_width="373dp"
+        android:layout_height="313dp"
         android:layout_marginStart="143dp"
         android:layout_marginLeft="143dp"
         android:layout_marginTop="36dp"

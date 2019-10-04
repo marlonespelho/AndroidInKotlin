@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/loggout"
-        android:title="@string/loggout"
+        android:id="@+id/alterarSenha"
+        android:title="@string/alterar_senha"
         android:orderInCategory="1"
         app:showAsAction="ifRoom"/>
 </menu>

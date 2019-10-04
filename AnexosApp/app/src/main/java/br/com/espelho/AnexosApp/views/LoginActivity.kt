@@ -19,12 +19,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         mUsuarioBusiness = UsuarioBusiness(this)
         mSecurityPreferences = SecurityPreferences(this)
-
-        verificarUsuarioLogado()
         setListeners()
+    }
+
+    override fun onBackPressed() {
     }
 
     private fun setListeners(){
@@ -48,8 +48,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         val email = editTextEmail.text.toString()
         val senha = editTextSenha.text.toString()
         if (mUsuarioBusiness.login(email, senha, switchConectado.isChecked)){
-            startActivity(Intent(this, MainActivity::class.java))
             finish()
+            setResult(0)
         }
         else{
             Toast.makeText(this, getString(R.string.usuario_senha_incorretos), Toast.LENGTH_LONG).show()
@@ -60,11 +60,5 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(Intent(this, CadastroActivity::class.java))
     }
 
-    private fun verificarUsuarioLogado(){
-        val manterLogado = mSecurityPreferences.getStoreString(AnexosConstants.KEY.MANTER_LOGADO)?.toBoolean()
-        if (manterLogado != null && manterLogado){
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
-    }
+
 }
